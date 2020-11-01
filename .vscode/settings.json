@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "algorithm": "cpp",
+        "ios": "cpp",
+        "tuple": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "random": "cpp",
+        "ostream": "cpp"
+    },
+    "C_Cpp.default.includePath": [
+        "/usr/local/Cellar/gcc/9.3.0_1/include/c++/9.3.0/x86_64-apple-darwin19",
+    ],
+    "C_Cpp.suggestSnippets": false,
+    "editor.formatOnSave": true,
+}

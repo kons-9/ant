@@ -1,0 +1,217 @@
+{
+  "cin": {
+    "body": [
+      "cin >> $1;"
+    ],
+    "description": "standard input",
+    "prefix": "ci"
+  },
+  "cout": {
+    "body": [
+      "cout << $1 << endl;"
+    ],
+    "description": "standard output",
+    "prefix": "co"
+  },
+  "digit_sum": {
+    "body": [
+      "int digit_sum(int n) {",
+      "\tint res = 0;",
+      "\twhile(n > 0) {",
+      "\t\tres += n%10;",
+      "\t\tn /= 10;",
+      "\t}",
+      "\treturn res;",
+      "}"
+    ],
+    "description": "sum of all digits",
+    "prefix": "digitsum"
+  },
+  "prime_library": {
+    "body": [
+      "bool is_Prime(int n) {",
+      "    //素数判定",
+      "    for (int i = 2; i * i < n; i++) {",
+      "        if (n % i == 0) {",
+      "            return false;",
+      "        }",
+      "    }",
+      "    return n != 1;",
+      "}",
+      "",
+      "vector<int> divisor(int n) {",
+      "    //約数の列挙",
+      "    vector<int> res;",
+      "    for (int i = 1; i * i <= n; i++) {",
+      "        if (n % i == 0) {",
+      "            res.push_back(i);",
+      "            if (n / i != i)",
+      "                res.push_back(n / i);",
+      "        }",
+      "    }",
+      "    return res;",
+      "}",
+      "",
+      "map<int, int> prime_factor(int n) {",
+      "    //素因数分解",
+      "    map<int, int> res;",
+      "    for (int i = 2; i * i <= n; i++) {",
+      "        while (n % i == 0) {",
+      "            ++res[i];",
+      "            n /= i;",
+      "        }",
+      "    }",
+      "    if (n != 1)",
+      "        res[n] = 1;",
+      "    return res;",
+      "}"
+    ],
+    "description": "finding prime number",
+    "prefix": "primeset"
+  },
+  "for for for loop": {
+    "body": [
+      "for (int i = 0; i < ${1:n}; i++){",
+      "\tfor (int j = 0; j < ${2:m}; j++){",
+      "\t\tfor (int k =0; k < ${3:l}; k++){",
+      "\t\t\t$0",
+      "\t\t}",
+      "\t}",
+      "}"
+    ],
+    "description": "triple for loop",
+    "prefix": "for3"
+  },
+  "for for loop": {
+    "body": [
+      "for (int i = 0; i < ${1:n}; i++){",
+      "\tfor (int j = 0; j < ${2:m}; j++){",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "double for loop",
+    "prefix": "for2"
+  },
+  "for loop": {
+    "body": [
+      "for (int ${1:i} = ${2:0}; ${1:i} < ${3:n}; ${4:${1:i}++}){",
+      "\t$0",
+      "}"
+    ],
+    "description": "for loop",
+    "prefix": "for"
+  },
+  "gcd": {
+    "body": [
+      "int gcd(int a, int b) {",
+      "\treturn a ? gcd(b, a%b) : a;",
+      "}"
+    ],
+    "description": "Greatest Common Divisor",
+    "prefix": "gcd"
+  },
+  "header": {
+    "body": [
+      "#include <bits/stdc++.h>",
+      "#define MAX_N 10000",
+      "#define INF 1e9",
+      "\nusing namespace std;",
+      "\ntypedef int long long ll;",
+      "typedef int long l;",
+      "typedef pair<int, int> Pii;",
+      "const ll MOD = 1000000007;",
+      "\n\nint main() {",
+      "\tcin.tie(0);",
+      "\tios::sync_with_stdio(false);",
+      "\t$0",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "calling header",
+    "prefix": "header"
+  },
+  "lcm": {
+    "body": [
+      "int lcm(int a, int b) {",
+      "\treturn a / gcd(a, b) * b;",
+      "}"
+    ],
+    "description": "Least Common Multiply",
+    "prefix": "lcm"
+  },
+  "string_count": {
+    "body": [
+      "int string_count(string s, char c) {",
+      "\treturn count(s.cbegin(), s.cend(), c);",
+      "}"
+    ],
+    "description": "count the number of occurrences of char 'x' in the string",
+    "prefix": "stringcount"
+  },
+  "switch": {
+    "body": [
+      "switch (${1:expression}) {",
+      "\tdefault:",
+      "\tbreak;${0:}",
+      "}"
+    ],
+    "description": "switch statement",
+    "prefix": "switch"
+  },
+  "while": {
+    "body": [
+      "while (${1:expression}) {",
+      "\t${0:}",
+      "}"
+    ],
+    "description": "while loop",
+    "prefix": "while"
+  },
+  "union-find": {
+    "body": [
+      "class UnionFind {",
+      "  private:",
+      "    vector<int> par;",
+      "",
+      "  public:",
+      "    UnionFind(int n)",
+      "        : par(n, -1) {",
+      "    }",
+      "",
+      "    void init(int n) {",
+      "        par.assign(n, -1);",
+      "    }",
+      "",
+      "    int find(int x) {",
+      "        if (par[x] < 0)",
+      "            return x;",
+      "        else",
+      "            return par[x] = find(par[x]);",
+      "    }",
+      "",
+      "    bool issame(int x, int y) {",
+      "        return find(x) == find(y);",
+      "    }",
+      "",
+      "    bool unite(int x, int y) {",
+      "        x = find(x);",
+      "        y = find(y);",
+      "        if (x == y)",
+      "            return false;",
+      "        if (par[x] > par[y])",
+      "            swap(x, y);  // merge technique",
+      "        par[x] += par[y];",
+      "        par[y] = x;",
+      "        return true;",
+      "    }",
+      "",
+      "    int size(int x) {",
+      "        return -par[find(x)];",
+      "    }",
+      "};"
+    ],
+    "description": "union-find",
+    "prefix": "unionfind"
+  }
+}
